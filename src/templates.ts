@@ -55,7 +55,7 @@ export function renderTemplate(templateId: string, data: InvoiceData): string {
           
           <div class="t1-invoice-meta-top" style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; width: 50%;">
             <div style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; color: var(--inv-accent); letter-spacing: 0.05em; line-height: 1;">Invoice #</div>
-            <input type="text" class="edit-field text-right" style="font-weight: 700; font-size: 1.1rem; width: 120px; text-align: right; margin-top: 0.4rem; padding: 0; color: var(--inv-accent);" data-field="invoiceNumber" value="${data.invoiceNumber}" placeholder="INV-0001" />
+            <input type="text" class="edit-field text-right" style="font-weight: 700; font-size: 1.1rem; min-width: 140px; max-width: 100%; width: 260px; text-align: right; margin-top: 0.4rem; padding: 0; color: var(--inv-accent);" data-field="invoiceNumber" value="${data.invoiceNumber}" placeholder="INV-0001" />
           </div>
         </div>
 
@@ -259,7 +259,7 @@ export function renderTemplate(templateId: string, data: InvoiceData): string {
           
           <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; width: 50%;">
             <div style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase; color: var(--inv-accent); letter-spacing: 0.05em; line-height: 1;">Invoice #</div>
-            <input type="text" class="edit-field text-right" style="font-weight: 700; font-size: 1.1rem; width: 120px; text-align: right; margin-top: 0.4rem; padding: 0; color: var(--inv-accent);" data-field="invoiceNumber" value="${data.invoiceNumber}" placeholder="INV-0001" />
+            <input type="text" class="edit-field text-right" style="font-weight: 700; font-size: 1.1rem; min-width: 140px; max-width: 100%; width: 260px; text-align: right; margin-top: 0.4rem; padding: 0; color: var(--inv-accent);" data-field="invoiceNumber" value="${data.invoiceNumber}" placeholder="INV-0001" />
           </div>
         </div>
 
