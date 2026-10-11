@@ -166,9 +166,10 @@ export function renderTemplate(templateId: string, data: InvoiceData): string {
           <div class="t1-summary-val t1-summary-total" id="calc-total">${total.toFixed(2)} ${data.currency}</div>
         </div>
 
-        <!-- Footer / Details Section -->
-        ${(data.visibility.companyAddress || data.visibility.companyContact || data.visibility.bankDetails) ? `
-          <div class="t1-footer-section">
+        <!-- Footer / Details & Notes Block (Kept together as a single unified group) -->
+        <div class="invoice-footer-block">
+          ${(data.visibility.companyAddress || data.visibility.companyContact || data.visibility.bankDetails) ? `
+            <div class="t1-footer-section">
             <div class="t1-footer-col col-info" style="flex: 1 1 100%; display: flex; gap: 3rem;">
               ${(data.visibility.companyAddress || data.visibility.companyContact) ? `
                 <div style="flex: 1 1 0px; display: flex; flex-direction: column; gap: 0.4rem;">
@@ -245,13 +246,14 @@ export function renderTemplate(templateId: string, data: InvoiceData): string {
           </div>
         ` : ""}
 
-        <!-- Thank You Message Centered at Absolute Bottom -->
-        ${data.visibility.additionalNotes ? `
-          <div class="removable-wrapper" style="margin-top: 2.5rem; text-align: center; width: 100%;">
-            <button class="btn-hide-section" data-hide-section="additionalNotes" title="Hide Notes" style="left: 50%; transform: translateX(-50%); top: -14px;">×</button>
-            <textarea class="edit-field text-center" style="text-align: center; font-style: italic; font-size: 0.95rem; width: 100%; border: none;" data-field="additionalNotes" placeholder="Thank you for your business!">${data.additionalNotes}</textarea>
-          </div>
-        ` : ""}
+          <!-- Thank You Message Centered at Absolute Bottom -->
+          ${data.visibility.additionalNotes ? `
+            <div class="removable-wrapper" style="margin-top: 2.5rem; text-align: center; width: 100%;">
+              <button class="btn-hide-section" data-hide-section="additionalNotes" title="Hide Notes" style="left: 50%; transform: translateX(-50%); top: -14px;">×</button>
+              <textarea class="edit-field text-center" style="text-align: center; font-style: italic; font-size: 0.95rem; width: 100%; border: none;" data-field="additionalNotes" placeholder="Thank you for your business!">${data.additionalNotes}</textarea>
+            </div>
+          ` : ""}
+        </div>
       </div>
     `;
   } else {
@@ -384,9 +386,10 @@ export function renderTemplate(templateId: string, data: InvoiceData): string {
           <div class="t1-summary-val t1-summary-total" id="calc-total" style="color: var(--inv-accent);">${total.toFixed(2)} ${data.currency}</div>
         </div>
 
-        <!-- Footer / Details Section -->
-        ${(data.visibility.companyAddress || data.visibility.companyContact || data.visibility.bankDetails) ? `
-          <div class="t1-footer-section" style="border-top: 2px solid var(--inv-border); padding-top: 2rem; margin-top: 3.5rem;">
+        <!-- Footer / Details & Notes Block (Kept together as a single unified group) -->
+        <div class="invoice-footer-block">
+          ${(data.visibility.companyAddress || data.visibility.companyContact || data.visibility.bankDetails) ? `
+            <div class="t1-footer-section" style="border-top: 2px solid var(--inv-border); padding-top: 2rem; margin-top: 3.5rem;">
             <div class="t1-footer-col col-info" style="flex: 1 1 100%; display: flex; gap: 3rem;">
               ${(data.visibility.companyAddress || data.visibility.companyContact) ? `
                 <div style="flex: 1 1 0px; display: flex; flex-direction: column; gap: 0.4rem;">
@@ -463,13 +466,14 @@ export function renderTemplate(templateId: string, data: InvoiceData): string {
           </div>
         ` : ""}
 
-        <!-- Thank You Message Centered at Absolute Bottom -->
-        ${data.visibility.additionalNotes ? `
-          <div class="removable-wrapper" style="margin-top: 2.5rem; text-align: center; width: 100%;">
-            <button class="btn-hide-section" data-hide-section="additionalNotes" title="Hide Notes" style="left: 50%; transform: translateX(-50%); top: -14px;">×</button>
-            <textarea class="edit-field text-center" style="text-align: center; font-style: italic; font-size: 0.95rem; width: 100%; border: none;" data-field="additionalNotes" placeholder="Thank you for your business!">${data.additionalNotes}</textarea>
-          </div>
-        ` : ""}
+          <!-- Thank You Message Centered at Absolute Bottom -->
+          ${data.visibility.additionalNotes ? `
+            <div class="removable-wrapper" style="margin-top: 2.5rem; text-align: center; width: 100%;">
+              <button class="btn-hide-section" data-hide-section="additionalNotes" title="Hide Notes" style="left: 50%; transform: translateX(-50%); top: -14px;">×</button>
+              <textarea class="edit-field text-center" style="text-align: center; font-style: italic; font-size: 0.95rem; width: 100%; border: none;" data-field="additionalNotes" placeholder="Thank you for your business!">${data.additionalNotes}</textarea>
+            </div>
+          ` : ""}
+        </div>
       </div>
     `;
   }
