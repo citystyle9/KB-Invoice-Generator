@@ -338,6 +338,12 @@ function renderEditor() {
               <input type="checkbox" data-visibility-toggle="accountNo" ${invoiceData.visibility.accountNo ? 'checked' : ''} /> A/C Number
             </label>
             <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: var(--text-primary);">
+              <input type="checkbox" data-visibility-toggle="iban" ${invoiceData.visibility.iban ? 'checked' : ''} /> IBAN
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: var(--text-primary);">
+              <input type="checkbox" data-visibility-toggle="raastId" ${invoiceData.visibility.raastId ? 'checked' : ''} /> Raast ID
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: var(--text-primary);">
               <input type="checkbox" data-visibility-toggle="swiftCode" ${invoiceData.visibility.swiftCode ? 'checked' : ''} /> Bank SWIFT
             </label>
             <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: var(--text-primary);">

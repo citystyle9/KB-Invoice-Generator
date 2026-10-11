@@ -211,6 +211,20 @@ export function renderTemplate(templateId: string, data: InvoiceData): string {
                       <input type="text" class="edit-field" data-field="bankDetails.accountNo" value="${data.bankDetails.accountNo}" placeholder="Account Number" />
                     </div>
                   ` : ""}
+                  ${data.visibility.iban ? `
+                    <div class="removable-wrapper" style="display: grid; grid-template-columns: 70px 1fr; align-items: center; width: 100%;">
+                      <button class="btn-hide-section" data-hide-section="iban" title="Hide IBAN">×</button>
+                      <span style="color: var(--inv-text-muted); font-weight: 500;">IBAN:</span>
+                      <input type="text" class="edit-field" data-field="bankDetails.iban" value="${data.bankDetails.iban || ''}" placeholder="IBAN Number" />
+                    </div>
+                  ` : ""}
+                  ${data.visibility.raastId ? `
+                    <div class="removable-wrapper" style="display: grid; grid-template-columns: 70px 1fr; align-items: center; width: 100%;">
+                      <button class="btn-hide-section" data-hide-section="raastId" title="Hide Raast ID">×</button>
+                      <span style="color: var(--inv-text-muted); font-weight: 500;">Raast ID:</span>
+                      <input type="text" class="edit-field" data-field="bankDetails.raastId" value="${data.bankDetails.raastId || ''}" placeholder="Raast ID" />
+                    </div>
+                  ` : ""}
                   ${data.visibility.swiftCode ? `
                     <div class="removable-wrapper" style="display: grid; grid-template-columns: 70px 1fr; align-items: center; width: 100%;">
                       <button class="btn-hide-section" data-hide-section="swiftCode" title="Hide SWIFT Code">×</button>
@@ -413,6 +427,20 @@ export function renderTemplate(templateId: string, data: InvoiceData): string {
                       <button class="btn-hide-section" data-hide-section="accountNo" title="Hide Account Number">×</button>
                       <span style="color: var(--inv-text-muted);">A/C No:</span>
                       <input type="text" class="edit-field" data-field="bankDetails.accountNo" value="${data.bankDetails.accountNo}" placeholder="Account Number" />
+                    </div>
+                  ` : ""}
+                  ${data.visibility.iban ? `
+                    <div class="removable-wrapper" style="display: grid; grid-template-columns: 70px 1fr; align-items: center; width: 100%;">
+                      <button class="btn-hide-section" data-hide-section="iban" title="Hide IBAN">×</button>
+                      <span style="color: var(--inv-text-muted);">IBAN:</span>
+                      <input type="text" class="edit-field" data-field="bankDetails.iban" value="${data.bankDetails.iban || ''}" placeholder="IBAN Number" />
+                    </div>
+                  ` : ""}
+                  ${data.visibility.raastId ? `
+                    <div class="removable-wrapper" style="display: grid; grid-template-columns: 70px 1fr; align-items: center; width: 100%;">
+                      <button class="btn-hide-section" data-hide-section="raastId" title="Hide Raast ID">×</button>
+                      <span style="color: var(--inv-text-muted);">Raast ID:</span>
+                      <input type="text" class="edit-field" data-field="bankDetails.raastId" value="${data.bankDetails.raastId || ''}" placeholder="Raast ID" />
                     </div>
                   ` : ""}
                   ${data.visibility.swiftCode ? `
