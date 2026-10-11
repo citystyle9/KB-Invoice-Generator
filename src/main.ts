@@ -239,7 +239,7 @@ function renderEditor() {
             </div>
             
             <div>
-              <label style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Shipping (${invoiceData.currency})</label>
+              <label id="sidebar-shipping-label" style="font-size: 0.75rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Shipping (${invoiceData.currency})</label>
               <input type="number" class="edit-field" style="background: rgba(255,255,255,0.05); padding: 0.4rem; border: 1px solid var(--border-color); color: white;" id="sidebar-shipping" min="0" value="${invoiceData.shippingCharge}" data-sidebar-field="shippingCharge" />
             </div>
           </div>
@@ -470,11 +470,17 @@ function renderEditor() {
     input.addEventListener("focus", () => {
       const field = input.getAttribute("data-sidebar-field") || "";
       updateHint(field);
+      input.select();
+    });
+    input.addEventListener("click", () => {
+      input.select();
     });
     input.addEventListener("input", () => {
       const field = input.getAttribute("data-sidebar-field") || "";
       if (field === "currency") {
         invoiceData.currency = input.value;
+        const shpLabel = document.getElementById("sidebar-shipping-label");
+        if (shpLabel) shpLabel.textContent = `Shipping (${invoiceData.currency})`;
         refreshPaper(); // currency affects labels, need full paper refresh
       } else if (field === "discountPercent") {
         invoiceData.discountPercent = Math.max(0, Math.min(100, parseFloat(input.value) || 0));
@@ -747,11 +753,13 @@ function refreshPaper() {
     const taxEl = document.getElementById("sidebar-tax") as HTMLInputElement | null;
     const shpEl = document.getElementById("sidebar-shipping") as HTMLInputElement | null;
     const clrEl = document.getElementById("sidebar-accent-color") as HTMLInputElement | null;
+    const shpLabel = document.getElementById("sidebar-shipping-label");
     if (curEl) curEl.value = invoiceData.currency;
     if (disEl) disEl.value = String(invoiceData.discountPercent);
     if (taxEl) taxEl.value = String(invoiceData.taxPercent);
     if (shpEl) shpEl.value = String(invoiceData.shippingCharge);
     if (clrEl) clrEl.value = invoiceData.accentColor;
+    if (shpLabel) shpLabel.textContent = `Shipping (${invoiceData.currency})`;
   }
 }
 
